@@ -2,7 +2,7 @@ KUKA KR5 manipulator gazebo
 ===========================
 This is a little project in ROS & Gazebo of 3DoF KUKA robotic arm.
 
-The manipulator gets [x y z] cordinates and calculating linaer trajectory with trapezoidal velocity profile.
+The manipulator gets [x y z] cordinates, duration, and calculating linaer trajectory with trapezoidal velocity profile.
 
 Prerequisites:
 ==============
@@ -20,7 +20,7 @@ Install this package in your catkin_ws
 
 "cd ~/catkin_ws/src"
 
-"git clone https://github.com/nirlevi5/manipulator_gazebo.git"
+"git clone https://github.com/orsalmon/KUKA_KR5_manipulator_gazebo.git"
 
 "cd .."
 
@@ -28,12 +28,6 @@ Install this package in your catkin_ws
 
 Launching The Manipulator In GAZEBO Simulator:
 ==============================================
-(in a new terminal window)
-
-"source ~/catkin_ws/devel/setup.bash"
-
-"roslaunch manipulator_gazebo manipulator_empty_world.launch"
-
 (in a new terminal window)
 
 "source ~/catkin_ws/devel/setup.bash"
