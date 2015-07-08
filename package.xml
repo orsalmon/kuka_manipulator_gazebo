@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package>
+  <name>manipulator_gazebo</name>
+  <version>0.0.0</version>
+  <description>manipulator_gazebo</description>
+  <maintainer email="orsalmon@gmail.com">Or Salmon</maintainer>
+  <maintainer email="noam.salomon@gmail.com">Noam Salomon</maintainer>
+  <license>BSD</license>
+
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>gazebo_ros</build_depend> 
+  <build_depend>controller_manager</build_depend>
+  <build_depend>ros_control</build_depend>
+  <build_depend>ros_controllers</build_depend>
+  
+  <run_depend>gazebo_ros</run_depend> 
+  <run_depend>controller_manager</run_depend>
+  <run_depend>ros_control</run_depend>
+  <run_depend>ros_controllers</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  
+  <export>
+  </export>
+</package>
+
