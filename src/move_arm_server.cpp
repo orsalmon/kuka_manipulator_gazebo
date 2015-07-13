@@ -74,14 +74,14 @@ void calc_cartezian_trajectory(double CT[3][N] , Float64 desX , Float64 desY , F
 		{
 			CT[i][0] = step_size[0] * trajectory_dir_vec[i] + initial_pose_end_effector[i];
 		}
-		ROS_INFO("cartezian step #1 : [%f , %f , %f]",CT[0][0],CT[1][0],CT[2][0]);
+		//ROS_INFO("cartezian step #1 : [%f , %f , %f]",CT[0][0],CT[1][0],CT[2][0]);
 		for (i=1; i<N ; i++)
 		{
 			for (int j=0; j<3 ; j++)
 			{
 				CT[j][i] = step_size[i] * trajectory_dir_vec[j] + CT[j][i-1];
 			}
-			ROS_INFO("cartezian step #%d : [%f , %f , %f]",i+1,CT[0][i],CT[1][i],CT[2][i]);
+			//ROS_INFO("cartezian step #%d : [%f , %f , %f]",i+1,CT[0][i],CT[1][i],CT[2][i]);
 		}
 }
 
@@ -97,7 +97,7 @@ void calc_joint_trajectory(double CT[3][N] , double JT[3][N], double initial_pos
 		th2 = current_joint_states[1];
 		th3 = current_joint_states[2];
 
-		ROS_INFO("initial joints state: [%f , %f , %f]",th1,th2,th3);
+		//ROS_INFO("current joints state: [%f , %f , %f]",th1,th2,th3);
 
 		//set the initial joint states into JT
 		for (int i=0; i<3 ;i++)
