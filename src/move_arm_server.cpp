@@ -75,6 +75,7 @@ void calc_cartezian_trajectory(double CT[3][N] , Float64 desX , Float64 desY , F
 			CT[i][0] = step_size[0] * trajectory_dir_vec[i] + initial_pose_end_effector[i];
 		}
 		//ROS_INFO("cartezian step #1 : [%f , %f , %f]",CT[0][0],CT[1][0],CT[2][0]);
+		ROS_INFO("");
 		for (i=1; i<N ; i++)
 		{
 			for (int j=0; j<3 ; j++)
@@ -248,11 +249,15 @@ bool move_arm(manipulator_gazebo::MoveArm::Request  &req,
 	{
 	ROS_INFO("Sending joint trajectory and controlling");
     control_joint_trajectory(joint_trajectory);
+    res.success.data = "True";
+    return true;
 	}
 
-	res.success.data = "True";
-
-	return true;
+	else //if trajectory isn't possible
+	{
+	res.success.data = "False";
+	return false;
+	}
 }
 
 void jointCallback(const sensor_msgs::JointState &msg)
