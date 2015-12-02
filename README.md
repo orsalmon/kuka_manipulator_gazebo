@@ -10,10 +10,6 @@ Install gazebo git:
 ------------
 sudo apt-get install git-all
 
-sudo apt-get install kdiff3
-
-sudo apt-get install qgit
-
 Install gazebo add-ons:
 ------------
 sudo apt-get install ros-indigo-move-base
