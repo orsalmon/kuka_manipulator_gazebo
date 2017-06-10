@@ -4,6 +4,7 @@
 #include "manipulator_gazebo/MoveArm.h"
 #include "sensor_msgs/JointState.h"
 #include "math.h"
+#include "geometry_msgs/Point.h"
 
 using namespace std_msgs;
 
@@ -17,6 +18,7 @@ bool 		is_trajectory_possible;
 ros::Publisher joint_1_pub;
 ros::Publisher joint_2_pub;
 ros::Publisher joint_3_pub;
+ros::Publisher end_effector_state_pub;
 
 void calc_cartezian_trajectory(double CT[3][N] , Float64 desX , Float64 desY , Float64 desZ , double initial_pose_end_effector[3])
 {
@@ -174,6 +176,8 @@ void calc_pose_end_effector_state(double cjs[3])
 void control_joint_trajectory(double JT[3][N])
 {
 	Float64 msg;
+	double current_end_effector_pose[3];
+	geometry_msgs::Point state_;
 		for (int i=0; i<N; i++)
 		{
 			//publish command for joint_1
@@ -190,6 +194,13 @@ void control_joint_trajectory(double JT[3][N])
 
 			//wait dt seconds
 			ros::Duration(dt).sleep();
+			
+			//calc and publish end effector pose
+			calc_pose_end_effector_state(current_end_effector_pose);
+			state_.x = current_end_effector_pose[0];
+			state_.y = current_end_effector_pose[1];
+			state_.z = current_end_effector_pose[2];
+			end_effector_state_pub.publish(state_);
 		}
 }
 
@@ -278,6 +289,7 @@ int main(int argc, char **argv)
   joint_1_pub = n.advertise<std_msgs::Float64>("/manipulator/link_1_controller/command", 1000);
   joint_2_pub = n.advertise<std_msgs::Float64>("/manipulator/link_2_controller/command", 1000);
   joint_3_pub = n.advertise<std_msgs::Float64>("/manipulator/link_3_controller/command", 1000);
+  end_effector_state_pub = n.advertise<geometry_msgs::Point>("/manipulator/end_effector_pose", 1000);
 
   init_end_effector_pose();
 
