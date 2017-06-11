@@ -24,7 +24,7 @@ Install this package in your catkin_ws
 
 "cd ~/catkin_ws/src"
 
-"git clone https://github.com/orsalmon/KUKA_KR5_manipulator_gazebo.git"
+"git clone https://github.com/orsalmon/kuka_manipulator_gazebo.git"
 
 "cd .."
 
