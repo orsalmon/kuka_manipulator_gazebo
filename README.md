@@ -2,7 +2,7 @@ KUKA KR5 manipulator gazebo
 ===========================
 This is a little project in ROS & Gazebo of 3DoF KUKA robotic arm.
 
-The manipulator gets [x y z] cordinates (m) and time duration (s), then does calculations and executes linaer trajectory with trapezoidal velocity profile.
+The manipulator gets [x y z] cordinates (m) and time duration (s), then does IK calculations and executes linaer trajectory with trapezoidal velocity profile.
 
 Prerequisites:
 ==============
