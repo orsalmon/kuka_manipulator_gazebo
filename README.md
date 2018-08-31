@@ -6,10 +6,6 @@ The manipulator gets [x y z] cordinates (m) and time duration (s), then does IK 
 
 Prerequisites:
 ==============
-Install gazebo git:
-------------
-sudo apt-get install git-all
-
 Install gazebo add-ons:
 ------------
 sudo apt-get install ros-indigo-move-base
